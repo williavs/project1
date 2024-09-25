@@ -10,6 +10,10 @@ const BioContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: ${theme.spacing.large};
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ContentWrapper = styled.div`

@@ -1,27 +1,27 @@
 export const theme = {
   colors: {
-    primary: '#007AFF',
-    secondary: '#5856D6',
-    accent: '#FF9500',
-    text: '#000000',
-    textLight: '#8E8E93',
-    background: '#FFFFFF',
-    userMessage: '#E1F5FE',  // Light blue for user messages
-    aiMessage: '#F0F4C3',    // Light yellow for AI messages
-    error: '#FF3B30',        // Red for error messages
+    primary: '#4a90e2',
+    secondary: '#50c878',
+    accent: '#ffa07a',
+    text: '#333333',
+    textLight: '#ffffff',
+    textDark: '#000000',
+    background: '#f5f7fa',
+    backgroundLight: '#ffffff',
+    error: '#ff0000',
   },
   gradients: {
-    primary: 'linear-gradient(135deg, #E0EAFC 0%, #CFDEF3 100%)',
+    primary: 'linear-gradient(135deg, #4a90e2, #50c878)',
   },
   fontSizes: {
-    small: '14px',
-    medium: '16px',
-    large: '20px',
-    xlarge: '24px',
+    small: '0.8rem',
+    medium: '1rem',
+    large: '1.2rem',
+    xlarge: '1.5rem',
   },
   spacing: {
-    small: '8px',
-    medium: '16px',
-    large: '24px',
+    small: '0.5rem',
+    medium: '1rem',
+    large: '2rem',
   },
 };

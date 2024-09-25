@@ -6,17 +6,25 @@ import { createWebSocket } from '../api/client';
 import { theme } from '../styles/theme';
 
 const AIContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: ${theme.spacing.large};
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: ${theme.spacing.medium};
 `;
 
 const ChatCard = styled(Card)`
-  background-color: ${theme.colors.background};
-  color: ${theme.colors.text};
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: ${theme.spacing.large};
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  width: 90%;
+  max-width: 1000px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ChatTitle = styled.h2`
@@ -27,52 +35,76 @@ const ChatTitle = styled.h2`
 `;
 
 const ChatHistory = styled.div`
-  margin-top: ${theme.spacing.medium};
-  max-height: 400px;
+  flex-grow: 1;
   overflow-y: auto;
   border: 1px solid ${theme.colors.accent};
-  border-radius: 8px;
+  border-radius: 12px;
   padding: ${theme.spacing.small};
+  margin-bottom: ${theme.spacing.medium};
+  display: flex;
+  flex-direction: column;
 `;
 
 const Message = styled.div<{ isUser: boolean }>`
   background-color: ${props => props.isUser ? theme.colors.primary : theme.colors.accent};
-  color: ${theme.colors.text};
-  padding: ${theme.spacing.small};
-  border-radius: 8px;
+  color: ${props => props.isUser ? theme.colors.textLight : theme.colors.textDark};
+  padding: ${theme.spacing.small} ${theme.spacing.medium};
+  border-radius: 12px;
   margin: 8px 0;
   max-width: 80%;
   align-self: ${props => props.isUser ? 'flex-end' : 'flex-start'};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const ChatInputContainer = styled.div`
   display: flex;
-  margin-top: ${theme.spacing.medium};
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: ${theme.spacing.small};
 `;
 
 const ChatInput = styled.input`
   flex-grow: 1;
   padding: ${theme.spacing.small};
-  border: 1px solid ${theme.colors.accent};
+  border: none;
   border-radius: 4px;
-  background-color: ${theme.colors.background};
+  background-color: transparent;
   color: ${theme.colors.text};
   font-size: ${theme.fontSizes.medium};
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px ${theme.colors.primary};
+  }
 `;
 
 const SendButton = styled(Button)`
-  background-color: ${theme.colors.primary};
-  color: ${theme.colors.text};
+  background: ${theme.gradients.primary};
+  color: ${theme.colors.textLight};
   padding: 10px 20px;
-  border-radius: 4px;
+  border-radius: 5px;
   font-weight: bold;
   margin-left: ${theme.spacing.small};
+  transition: opacity 0.3s ease;
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;
 
 const ErrorMessage = styled.p`
   color: ${theme.colors.error};
   text-align: center;
   margin-top: ${theme.spacing.small};
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.1);
+  padding: ${theme.spacing.small};
+  border-radius: 4px;
 `;
 
 interface ChatMessage {
