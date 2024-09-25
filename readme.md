@@ -102,7 +102,10 @@ Our development environment is containerized using Docker for consistency across
 ├── backend/
 │   ├── app/
 │   │   └── main.py
+│   │   └── routers/
+│   │      └── ai_routes.py
 │   ├── Dockerfile
+│   ├── .env
 │   └── requirements.txt
 ├── infrastructure/
 │   └── docker-compose.yml
