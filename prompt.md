@@ -4,7 +4,7 @@
 Create a full-stack AI-powered web application with the following specifications:
 
 <<TECHNOLOGY_STACK>>
-- Frontend: React 17 with TypeScript
+- Frontend: React 17 with TypeScript, styled-components
 - Backend: FastAPI (Python 3.9+)
 - Containerization: Docker and Docker Compose
 <</TECHNOLOGY_STACK>>
@@ -17,10 +17,20 @@ Implement the following project structure:
 │   │   └── index.html
 │   ├── src/
 │   │   ├── components/
+│   │   │   ├── AIDemo.tsx
+│   │   │   ├── Bio.tsx
+│   │   │   ├── Skills.tsx
+│   │   │   └── common/
+│   │   │       ├── Button.tsx
+│   │   │       └── Card.tsx
 │   │   ├── api/
+│   │   │   ├── client.ts
+│   │   │   └── index.ts
 │   │   ├── styles/
+│   │   │   └── theme.ts
 │   │   ├── App.tsx
-│   │   └── index.tsx
+│   │   ├── index.tsx
+│   │   └── global.css
 │   ├── Dockerfile
 │   ├── package.json
 │   └── tsconfig.json
@@ -87,9 +97,15 @@ Implement the following project structure:
    CMD ["npm", "start"]
    ```
 
-4. Implement the Calculator component and necessary styling.
+4. Implement the following components:
+   - AIDemo: AI chat interface
+   - Bio: Personal biography page
+   - Skills: Skills showcase
+   - Common components: Button, Card
 
-5. Ensure `frontend/tsconfig.json` is correctly configured for React and TypeScript.
+5. Create `frontend/src/global.css` for global styles.
+
+6. Ensure `frontend/tsconfig.json` is correctly configured for React and TypeScript.
 <</FRONTEND_SETUP>>
 
 <<BACKEND_SETUP>>
@@ -136,18 +152,11 @@ Implement the following project structure:
        allow_headers=["*"],
    )
 
-   class CalculationRequest(BaseModel):
-       operation: str
-       x: float
-       y: float
-
-   @app.post("/calculate")
-   async def calculate(request: CalculationRequest):
-       # Implement calculation logic here
+   # Implement AI chat endpoint and other necessary routes
 
    @app.get("/")
    async def root():
-       return {"message": "Welcome to the Simple Calculator API"}
+       return {"message": "Welcome to the AI-Powered Web Application API"}
    ```
 
 <</BACKEND_SETUP>>
@@ -236,6 +245,8 @@ clean:
 4. Access the frontend at http://localhost:3002 and the backend at http://localhost:8000.
 5. For any changes in dependencies, update the respective `package.json` or `requirements.txt` file and run `make rebuild`.
 6. Always use `make stop-dev` to properly stop the development environment.
+7. Implement the AI chat functionality in the AIDemo component and corresponding backend routes.
+8. Create a Bio page with personal information and a Skills component to showcase abilities.
 <</IMPORTANT_NOTES>>
 
 <<FINAL_STEPS>>

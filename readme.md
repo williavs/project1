@@ -16,11 +16,11 @@ Welcome to our AI-powered web application project! This README provides comprehe
 
 ## Project Overview
 
-This project is a simple calculator web application that combines a React frontend with a FastAPI backend. It's designed to be scalable, maintainable, and easy to develop.
+This project is an AI-powered web application that combines a React frontend with a FastAPI backend. It features a bio page and an AI chat interface, designed to be scalable, maintainable, and easy to develop.
 
 ## Technology Stack
 
-- Frontend: React 17 with TypeScript
+- Frontend: React 17 with TypeScript, styled-components
 - Backend: FastAPI (Python 3.9+)
 - Containerization: Docker and Docker Compose
 
@@ -78,13 +78,27 @@ Our development environment is containerized using Docker for consistency across
 ```
 .
 ├── frontend/
+│   ├── public/
+│   │   └── index.html
 │   ├── src/
 │   │   ├── components/
+│   │   │   ├── AIDemo.tsx
+│   │   │   ├── Bio.tsx
+│   │   │   ├── Skills.tsx
+│   │   │   └── common/
+│   │   │       ├── Button.tsx
+│   │   │       └── Card.tsx
 │   │   ├── api/
+│   │   │   ├── client.ts
+│   │   │   └── index.ts
 │   │   ├── styles/
-│   │   └── App.tsx
+│   │   │   └── theme.ts
+│   │   ├── App.tsx
+│   │   ├── index.tsx
+│   │   └── global.css
 │   ├── Dockerfile
-│   └── package.json
+│   ├── package.json
+│   └── tsconfig.json
 ├── backend/
 │   ├── app/
 │   │   └── main.py
@@ -92,7 +106,10 @@ Our development environment is containerized using Docker for consistency across
 │   └── requirements.txt
 ├── infrastructure/
 │   └── docker-compose.yml
-└── Makefile
+├── .gitignore
+├── Makefile
+├── README.md
+└── prompt.md
 ```
 
 ## Deployment
