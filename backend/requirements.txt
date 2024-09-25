@@ -1,7 +1,12 @@
 fastapi
-uvicorn
+uvicorn[standard]
+pandas
+python-dotenv
+langchain
+langchain-openai
+langchain-community
+langchain-core
+openai
 pydantic
-python-jose[cryptography]
-passlib[bcrypt]
-python-multipart
-PyJWT
+httpx
+websockets

@@ -4,7 +4,7 @@ import { theme } from '../../styles/theme';
 
 const StyledFooter = styled.footer`
   background: ${theme.gradients.primary};
-  color: ${theme.colors.white};
+  color: ${theme.colors.text};
   padding: ${theme.spacing.medium};
   text-align: center;
 `;

@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 const StyledCard = styled.div`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.background};
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: ${theme.spacing.large};

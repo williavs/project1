@@ -45,3 +45,40 @@ deploy-stage:
 deploy-prod:
 	@echo "Deploying to production..."
 	# Add your production deployment commands here
+
+
+# Run the AI routes script
+run-ai:
+	python backend/app/routers/ai_routes.py
+
+# Run the AI routes script in test mode
+test-ai:
+	python backend/app/routers/ai_routes.py test
+
+# Install Python dependencies
+install-deps:
+	pip install -r backend/requirements.txt
+
+# Run the FastAPI server
+run-server:
+	uvicorn backend.app.main:app --reload --port 8501
+
+# Rebuild and restart containers
+rebuild-and-restart:
+	@echo "Rebuilding and restarting containers..."
+	$(DOCKER_COMPOSE) down
+	$(DOCKER_COMPOSE) build
+	$(DOCKER_COMPOSE) up -d
+
+# Install frontend dependencies
+install-frontend-deps:
+	@echo "Installing frontend dependencies..."
+	cd frontend && npm install
+
+# Install backend dependencies
+install-backend-deps:
+	@echo "Installing backend dependencies..."
+	cd backend && pip install -r requirements.txt
+
+# Update all dependencies
+update-deps: install-frontend-deps install-backend-deps
